@@ -1,0 +1,22 @@
+.m-request {
+    margin-top: 40px;
+    width: 440px;
+
+    h1 {
+        margin-bottom: 60px;
+    }
+
+    .actions {
+        width: 100%;
+
+        .m-button-medium {
+            margin-top: 60px;
+        }
+    }
+}
+
+@media (max-width: $width-large-mobile) {
+    .m-request{
+        width: 240px;
+    }
+}

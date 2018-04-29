@@ -1,0 +1,29 @@
+header {
+  background: #fff;
+  height: 100px;
+  text-align: center;
+  border-bottom: 1px solid #f3f3f3; }
+  header.header-user {
+    height: 70px;
+    text-align: left; }
+    header.header-user .icon-logo {
+      height: 64px;
+      width: 64px;
+      margin-left: 40px; }
+    header.header-user .header-logout {
+      float: right;
+      padding: 25px 40px;
+      color: #777; }
+      header.header-user .header-logout span {
+        line-height: 20px;
+        display: inline-block;
+        vertical-align: text-bottom;
+        margin-right: 5px; }
+      header.header-user .header-logout i {
+        font-size: 15px; }
+      header.header-user .header-logout:hover {
+        text-decoration: none; }
+        header.header-user .header-logout:hover span, header.header-user .header-logout:hover i {
+          color: #000; }
+
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,18 @@
+.m-register {
+    margin-top: 40px;
+    width: 440px;
+
+    h1 {
+        margin-bottom: 60px;
+    }
+}
+
+.m-register-confirmed {
+    margin-top: 40px;
+}
+
+@media (max-width: $width-large-mobile) {
+    .m-register{
+        width: 240px;
+    }
+}

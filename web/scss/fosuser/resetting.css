@@ -1,0 +1,13 @@
+.m-request {
+  margin-top: 40px;
+  width: 440px; }
+  .m-request h1 {
+    margin-bottom: 60px; }
+  .m-request .form-group--request {
+    margin-bottom: 30px; }
+  .m-request .actions {
+    width: 100%; }
+    .m-request .actions .m-button-medium {
+      margin-top: 60px; }
+
+/*# sourceMappingURL=resetting.css.map */
