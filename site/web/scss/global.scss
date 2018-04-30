@@ -1,0 +1,83 @@
+/* --------- GLOBAL --------- */
+body {
+    font-size: 13px;
+
+    &.body-logged {
+        background: #f9f9f9;
+    }
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.icon {
+    vertical-align: middle;
+
+    &.icon-logo {
+        width: 100px;
+        height: 100px;
+        fill: $blue-medium;
+    }
+
+    &.icon-profile {
+        width: 175px;
+        height: 175px;
+    }
+}
+
+.message-flash {
+    font-size: 15px;
+    text-align: center;
+    margin: 15px 0 30px;
+    padding: 20px 0;
+
+    &.success {
+        background: #f7f7f7;
+        border: 1px solid #f3f3f3;
+    }
+}
+
+.alert {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.form-control {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    &:focus {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+}
+
+h1 {
+    font-size: 35px;
+    line-height: 60px;
+    color: $blue-light;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 100;
+    width: 100%;
+    letter-spacing: 1.5px;
+}
+
+@media (max-width: $width-large-mobile) {
+    h1 {
+        font-size: 25px;
+        line-height: 35px;
+    }
+
+    .container-fluid {
+        padding-top: 20px;
+    }
+}

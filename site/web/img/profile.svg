@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<svg viewBox="0 0 175 175" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+	<path d="M312,232.384167 L312,253 L139,253 L139,232.384167 L196.666667,195.333333 L196.666667,180.916667 C193.110556,180.916667 189.823556,177.336528 186.796056,170.17625 C183.76375,163.015972 182.25,156.985 182.25,152.083333 L182.25,123.25 C182.25,111.337028 186.478889,101.144444 194.941472,92.6866667 C203.39925,84.2288889 213.582222,80 225.5,80 C237.417778,80 247.605556,84.2288889 256.063333,92.6866667 C264.521111,101.144444 268.75,111.337028 268.75,123.25 L268.75,152.083333 C268.75,156.985 267.241056,163.015972 264.20875,170.17625 C261.18125,177.336528 257.89425,180.916667 254.333333,180.916667 L254.333333,195.333333 L312,232.384167" id="path-1"></path>
+	<filter  filterUnits="objectBoundingBox" id="filter-2">
+		<feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+		<feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+		<feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+		<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+	</filter>
+</defs>
+<g id="default-profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+	<g id="Desktop" transform="translate(-303.000000, -263.000000)">
+		<g id="Content" transform="translate(120.000000, 110.000000)">
+			<g id="gauche" transform="translate(45.000000, 74.000000)">
+				<g id="Fill-14">
+					<use fill="#F3F3F3" fill-rule="evenodd" xlink:href="#path-1"></use>
+					<use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+					<use stroke="#FFFFFF" stroke-width="1" xlink:href="#path-1"></use>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

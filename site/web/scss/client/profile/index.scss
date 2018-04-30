@@ -1,0 +1,36 @@
+&.m-client-profile {
+    .content {
+        display: flex;
+
+        .content-left {
+            width: 480px;
+            background: #f3f3f3;
+
+            .profile-image {
+                text-align: center;
+                padding: 25px 0 25px;
+            }
+
+            .m-label-small {
+                display: block;
+                margin-bottom: 3px;
+            }
+        }
+
+        .content-right {
+            width: 790px;
+            background: $blue-medium;
+            text-align: center;
+            vertical-align: middle;
+            padding: 0;
+
+            p {
+                font-size: 24px;
+                color: #fff;
+                line-height: 420px;
+                letter-spacing: 2px;
+            }
+        }
+    }
+
+}
