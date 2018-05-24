@@ -1,0 +1,7 @@
+<div class="module-training-days">
+    {% spaceless %}
+        {% for obj in days %}
+            <div class="{% if obj.isSelected %}selected{% endif %}">{{ obj.name }}</div>
+        {% endfor %}
+    {% endspaceless %}
+</div>

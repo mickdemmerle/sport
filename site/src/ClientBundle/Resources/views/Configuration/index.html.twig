@@ -1,25 +1,74 @@
 {% extends '@ClientBundle/layout.html.twig' %}
 
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset(prefix_path ~ '/bundles/client/js/index-training.js') }}"></script>
+{% endblock %}
+
 {% block body %}
     <div class="container-client m-client-configuration">
         <h1>{{ "Configuration"|trans }}</h1>
 
         <div class="content">
-            <a href="{{ path('dashboard_configuration_add_training') }}" class="m-button-medium">{{ 'Ajouter un entrainement' }}</a>
-
-            <h2>Liste de mes entrainements</h2>
-            <table class="table">
-                <tr>
-                    <th>{{ "Nom"|trans }}</th>
-                    <th>{{ "Jours"|trans }}</th>
-                </tr>
+            <h2>{{ "Mes entrainements"|trans }} ({{ trainings|length }})</h2>
+            <div class="listing-training row">
             {% for training in trainings %}
-                <tr>
-                    <td>{{ training.name }}</td>
-                    <td>{{ training.days|join(', ') }}</td>
-                </tr>
+                <div class="col-md-4">
+                    <div class="m-card js-edit-link" data-url="{{ path('dashboard_configuration_edit_training', {'id':training.id}) }}">
+                        <div class="training-image m-card-image">{{ training.name|slice(0,2) }}</div>
+                        <div class="training-description">
+                            <div class="training-name">{{ training.name }}</div>
+                            {% include '::modules/training-days.html.twig' with {days: training.moduleDays} %}
+                        </div>
+                        <div class="training-exercises">
+                            <table>
+                                {% for exercise in training.exercises %}
+                                <tr>
+                                    <td>{{ exercise.name }}</td>
+                                    <td>{{ exercise.repetitionMax }}</td>
+                                </tr>
+                            {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
-            </table>
+
+                <div class="col-md-4">
+                    <div class="m-card m-card-add js-edit-link" data-url="{{ path('dashboard_configuration_add_training') }}">
+                        <div class="training-image m-card-image"></div>
+                        <div class="training-description"></div>
+                        <div class="training-exercises">
+                            <i class="material-icons">add_circle</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="content">
+            <h2>{{ "Mes exercices personnalisés"|trans }} ({{ exercises|length }})</h2>
+            <div class="listing-exercise row">
+                {% for exercise in exercises %}
+                    <div class="col-md-4">
+                    <div class="js-edit-link m-card" data-url="{{ path('dashboard_configuration_edit_exercise', {'id':exercise.id}) }}">
+                        <div class="exercise-image m-card-image">{{ exercise.name|slice(0,2) }}</div>
+                        <div class="exercise-description">
+                            <div class="exercise-name">{{ exercise.name }}</div>
+                        </div>
+                    </div>
+                    </div>
+                {% endfor %}
+
+                <div class="col-md-4">
+                    <div class="m-card m-card-add js-edit-link" data-url="{{ path('dashboard_configuration_add_exercise') }}">
+                        <div class="exercise-image m-card-image"></div>
+                        <div class="exercise-description">
+                            <i class="material-icons">add_circle</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -1,0 +1,23 @@
+{% extends '@ClientBundle/layout.html.twig' %}
+
+{% block body %}
+    <div class="container-client m-client-configuration-add-exercise">
+        <h1>{{ "Configuration"|trans }} / {{ "Ajouter un exercice"|trans }}</h1>
+
+        <div class="content">
+            <h2>{{ "Ajouter un exercice"|trans }}</h2>
+
+            <form class="form" method="post" action="{{ path('dashboard_configuration_add_exercise_confirm') }}">
+
+                <div class="form-group">
+                    <label class="m-label-small" for="name">{{ 'Nom'|trans }}</label>
+                    <input class="form-control m-input-text" type="text" id="name" name="name" required="required"/>
+                </div>
+
+                <div class="form-group form-group-action">
+                    <input class="m-button-medium" type="submit" value="{{ "Ajouter"|trans }}">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

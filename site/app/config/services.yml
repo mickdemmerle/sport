@@ -23,6 +23,17 @@ services:
     Sport\Domain\Training\TrainingManager: ~
     Sport\Domain\Training\TrainingFactory: ~
 
+    Sport\Domain\Exercise\ExerciseManager: ~
+    Sport\Domain\Exercise\ExerciseFactory: ~
+
+    Sport\Domain\TrainingExercise\TrainingExerciseManager: ~
+
+    Sport\Domain\Modules\ModuleTrainingDaysFactory: ~
+
+    Sport\Domain\Workout\WorkoutManager: ~
+
+    Sport\Domain\WorkoutExercise\WorkoutExerciseManager: ~
+
     property_normalizer:
         class: Symfony\Component\Serializer\Normalizer\PropertyNormalizer
         public: true

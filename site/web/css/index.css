@@ -269,9 +269,33 @@ header {
     -moz-box-shadow: none;
     box-shadow: none; }
 
+.m-button-small {
+  background: #0060c1;
+  width: 120px;
+  height: 36px;
+  color: #fff;
+  font-size: 11px;
+  margin-bottom: 5px;
+  -webkit-box-shadow: 0px 0px 10px #aaa;
+  -moz-box-shadow: 0px 0px 10px #aaa;
+  box-shadow: 0px 0px 10px #aaa;
+  text-align: center;
+  line-height: 36px;
+  cursor: pointer;
+  border: none; }
+  .m-button-small:hover {
+    background: #267edf;
+    color: #fff; }
+  .m-button-small:focus {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; }
+
 a.m-button-medium {
   display: inline-block;
   color: #fff !important; }
+  a.m-button-medium:hover {
+    text-decoration: none; }
 
 /* --------- LINK --------- */
 .m-label-link-right {
@@ -402,6 +426,13 @@ h1 {
     text-transform: uppercase;
     color: #C17900;
     padding-left: 20px; }
+  .container-client h3 {
+    font-size: 15px;
+    font-weight: 400;
+    width: 100%;
+    padding: 20px 0;
+    margin: 0;
+    border-top: 1px solid #ddd; }
   .container-client .content {
     min-height: 460px;
     background: #fff;
@@ -436,12 +467,221 @@ h1 {
       width: 480px; }
     .container-client.m-client-homepage .content .content-right {
       width: 790px; }
+  .container-client .m-card {
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2); }
+    .container-client .m-card .m-card-image {
+      background: #004183;
+      color: #fff;
+      width: 100%; }
   .container-client.m-client-configuration .content {
     padding: 20px; }
+  .container-client.m-client-configuration .m-card {
+    margin-bottom: 20px; }
+    .container-client.m-client-configuration .m-card:hover {
+      cursor: pointer;
+      background: #fcfcfc; }
+  .container-client.m-client-configuration .m-card-add .m-card-image {
+    background: #eee; }
+  .container-client.m-client-configuration .m-card-add .training-exercises {
+    text-align: center; }
+  .container-client.m-client-configuration .m-card-add .material-icons {
+    color: #eee; }
+  .container-client.m-client-configuration .m-card-add:hover {
+    background: #fff; }
+    .container-client.m-client-configuration .m-card-add:hover .m-card-image {
+      background: #ddd; }
+    .container-client.m-client-configuration .m-card-add:hover .material-icons {
+      color: #ddd; }
+  .container-client.m-client-configuration .listing-training {
+    margin-top: 60px; }
+    .container-client.m-client-configuration .listing-training .m-card-add .material-icons {
+      font-size: 130px; }
+    .container-client.m-client-configuration .listing-training .training-image {
+      height: 140px;
+      line-height: 130px;
+      text-align: center;
+      font-size: 40px;
+      text-transform: uppercase;
+      display: inline-block;
+      vertical-align: top; }
+    .container-client.m-client-configuration .listing-training .training-description {
+      text-align: center;
+      display: inline-block;
+      vertical-align: top;
+      width: 100%;
+      padding-top: 10px;
+      height: 115px; }
+      .container-client.m-client-configuration .listing-training .training-description .training-name {
+        font-size: 17px;
+        padding-bottom: 10px;
+        padding-left: 10px; }
+      .container-client.m-client-configuration .listing-training .training-description .module-training-days {
+        padding: 20px 10px; }
+    .container-client.m-client-configuration .listing-training .training-exercises {
+      padding: 20px;
+      width: 100%;
+      overflow: scroll;
+      height: 165px; }
+      .container-client.m-client-configuration .listing-training .training-exercises table {
+        width: 100%; }
+        .container-client.m-client-configuration .listing-training .training-exercises table tr td {
+          border: none;
+          font-size: 12px;
+          padding: 4px 20px 4px 10px; }
+  .container-client.m-client-configuration .listing-exercise {
+    margin-top: 60px; }
+    .container-client.m-client-configuration .listing-exercise .m-card-add .material-icons {
+      font-size: 65px; }
+    .container-client.m-client-configuration .listing-exercise .exercise-image {
+      height: 70px;
+      line-height: 70px;
+      text-align: center;
+      font-size: 20px;
+      text-transform: uppercase;
+      vertical-align: top; }
+    .container-client.m-client-configuration .listing-exercise .exercise-description {
+      height: 100px;
+      padding: 20px;
+      text-align: center; }
+  .container-client.m-client-configuration .m-button-medium {
+    margin-top: 40px;
+    margin-left: 20px; }
+  .container-client.m-client-configuration .table tr:first-child td {
+    border-top: none; }
   .container-client.m-client-configuration-add-training .content {
     padding: 20px; }
   .container-client.m-client-configuration-add-training .form {
     padding-left: 20px;
-    width: 700px; }
+    width: 800px; }
+  .container-client.m-client-configuration-add-training h3 {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    font-weight: bold; }
+    .container-client.m-client-configuration-add-training h3 .material-icons {
+      font-size: 15px;
+      color: #777;
+      margin-right: 10px;
+      vertical-align: middle; }
+  .container-client.m-client-configuration-add-training .form-group-action {
+    width: 100%;
+    padding-top: 40px;
+    margin-top: 20px; }
+  .container-client.m-client-configuration-add-training #group-exercises {
+    width: 800px;
+    max-height: 400px;
+    overflow: scroll; }
+  .container-client.m-client-configuration-add-training #group-session-workout {
+    min-height: 60%;
+    max-height: 60%;
+    overflow: scroll; }
+  .container-client.m-client-configuration-add-training .chk-days {
+    margin-right: 3px;
+    margin-top: 1px; }
+  .container-client.m-client-configuration-add-training .label-days {
+    margin-right: 20px; }
+  .container-client.m-client-configuration-add-training #btn-add-exercise {
+    cursor: pointer;
+    color: #999; }
+    .container-client.m-client-configuration-add-training #btn-add-exercise:hover {
+      color: #000; }
+    .container-client.m-client-configuration-add-training #btn-add-exercise i {
+      font-size: 15px; }
+    .container-client.m-client-configuration-add-training #btn-add-exercise span {
+      vertical-align: text-bottom; }
+  .container-client.m-client-configuration-add-training .table-exercises tr th {
+    border: none;
+    background: #f3f3f3; }
+  .container-client.m-client-configuration-add-training .table-exercises tr td {
+    vertical-align: bottom; }
+  .container-client.m-client-configuration-add-training .session-workout-preview {
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 30px;
+    -webkit-box-shadow: 0 0 10px #999;
+    -moz-box-shadow: 0 0 10px #999;
+    box-shadow: 0 0 10px #999;
+    width: 80%;
+    height: 80%; }
+    .container-client.m-client-configuration-add-training .session-workout-preview .preview-close {
+      float: right;
+      cursor: pointer;
+      color: #999; }
+      .container-client.m-client-configuration-add-training .session-workout-preview .preview-close:hover {
+        color: #000; }
+  .container-client.m-client-configuration-add-training .table-session-workout tr th {
+    text-align: center;
+    border: none;
+    background: #f3f3f3; }
+    .container-client.m-client-configuration-add-training .table-session-workout tr th:nth-child(1) {
+      width: 100px; }
+    .container-client.m-client-configuration-add-training .table-session-workout tr th:nth-child(2) {
+      width: 75px; }
+  .container-client.m-client-configuration-add-training .table-session-workout tr td {
+    text-align: center;
+    vertical-align: middle; }
+    .container-client.m-client-configuration-add-training .table-session-workout tr td:nth-child(1) {
+      font-size: 25px;
+      font-weight: 100; }
+    .container-client.m-client-configuration-add-training .table-session-workout tr td:nth-child(2) span {
+      display: block; }
+      .container-client.m-client-configuration-add-training .table-session-workout tr td:nth-child(2) span:nth-child(1) {
+        font-size: 22px; }
+  .container-client.m-client-configuration-add-training .table-session-workout tr:nth-child(even) td:nth-child(2) {
+    background: #0060c1;
+    color: #fff; }
+  .container-client.m-client-configuration-add-training .table-session-workout tr:nth-child(odd) td:nth-child(2) {
+    color: #0060c1; }
+  .container-client.m-client-configuration-add-training .table-session-workout .exercices-details .exercice-details .exercice-details-name {
+    display: inline-block;
+    width: 200px;
+    margin-right: 20px;
+    overflow: hidden; }
+  .container-client.m-client-configuration-add-training .table-session-workout .exercices-details .exercice-details .exercice-details-serie {
+    display: inline-block;
+    width: 100px;
+    margin-right: 20px; }
+    .container-client.m-client-configuration-add-training .table-session-workout .exercices-details .exercice-details .exercice-details-serie .material-icons {
+      vertical-align: middle;
+      font-size: 13px;
+      color: #777;
+      margin: 0 5px; }
+  .container-client.m-client-configuration-add-training .table-session-workout .exercices-details .exercice-details .exercice-details-break {
+    display: inline-block;
+    width: 100px;
+    color: #777; }
+    .container-client.m-client-configuration-add-training .table-session-workout .exercices-details .exercice-details .exercice-details-break .material-icons {
+      vertical-align: middle;
+      font-size: 13px; }
+  .container-client.m-client-configuration-add-exercise .content {
+    padding: 20px; }
+  .container-client.m-client-configuration-add-exercise .form-group {
+    padding-left: 20px;
+    padding-top: 20px; }
+
+.module-training-days div {
+  display: inline-block;
+  border: 1px solid #f3f3f3;
+  height: 25px;
+  width: 30px;
+  overflow: hidden;
+  padding: 3px;
+  text-align: center;
+  font-size: 12px;
+  color: #ddd;
+  border-right: none;
+  background: #fff; }
+  .module-training-days div:last-child {
+    border-right: 1px solid #f3f3f3; }
+  .module-training-days div.selected {
+    background: #198CFF;
+    color: #fff;
+    border-color: #198CFF; }
 
 /*# sourceMappingURL=index.css.map */

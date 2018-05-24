@@ -54,10 +54,41 @@
     }
 }
 
+.m-button-small {
+    background: #0060c1;
+    width: 120px;
+    height: 36px;
+    color: #fff;
+    font-size: 11px;
+    margin-bottom: 5px;
+    -webkit-box-shadow: 0px 0px 10px #aaa;
+    -moz-box-shadow: 0px 0px 10px #aaa;
+    box-shadow: 0px 0px 10px #aaa;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+    border: none;
+
+    &:hover {
+        background: #267edf;
+        color: #fff;
+    }
+
+    &:focus {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+}
+
 a {
     &.m-button-medium {
         display: inline-block;
         color: #fff !important;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 }
 

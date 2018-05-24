@@ -1,0 +1,25 @@
+.module-training-days {
+    div {
+        display: inline-block;
+        border:1px solid #f3f3f3;
+        height: 25px;
+        width: 30px;
+        overflow: hidden;
+        padding: 3px;
+        text-align: center;
+        font-size: 12px;
+        color: #ddd;
+        border-right: none;
+        background: #fff;
+
+        &:last-child {
+            border-right: 1px solid #f3f3f3;
+        }
+
+        &.selected {
+            background: $blue-light;
+            color: #fff;
+            border-color: $blue-light;
+        }
+    }
+}

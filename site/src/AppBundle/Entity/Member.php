@@ -51,6 +51,20 @@ class Member extends User
      */
     protected $lastName;
 
+    /**
+     * @var array $exercises
+     *
+     * @ORM\OneToMany(targetEntity="Sport\Bundle\AppBundle\Entity\Exercise", mappedBy="member", cascade={"persist", "remove", "merge"})
+     */
+    private $exercises;
+
+    /**
+     * @var array $trainings
+     *
+     * @ORM\OneToMany(targetEntity="Sport\Bundle\AppBundle\Entity\Training", mappedBy="member", cascade={"persist", "remove", "merge"})
+     */
+    private $trainings;
+
     public function __construct()
     {
         parent::__construct();
@@ -99,6 +113,38 @@ class Member extends User
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
+    }
+
+    /**
+     * @return array
+     */
+    public function getExercises()
+    {
+        return $this->exercises;
+    }
+
+    /**
+     * @param array $exercises
+     */
+    public function setExercises($exercises)
+    {
+        $this->exercises = $exercises;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTrainings()
+    {
+        return $this->trainings;
+    }
+
+    /**
+     * @param array $trainings
+     */
+    public function setTrainings($trainings)
+    {
+        $this->trainings = $trainings;
     }
 }
 
