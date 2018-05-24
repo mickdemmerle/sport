@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}App · sport{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset(prefix_path ~ '/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset(prefix_path ~ '/css/fontawesome-all.css') }}" />
+
+        <link rel="stylesheet" href="{{ asset(prefix_path ~ '/css/index.css') }}" />
+        <script type="text/javascript" src="{{ asset(prefix_path ~ '/js/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset(prefix_path ~ '/js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset(prefix_path ~ '/js/index.js') }}"></script>
+    </head>
+    <body{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} class="body-logged"{% endif %}>
+        {% include '::inc/header.html.twig' %}
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {% include '::inc/sidenav.html.twig' %}
+        {% endif %}
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+        {#{% include '::inc/footer.html.twig' %}#}
+    </body>
+</html>

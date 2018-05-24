@@ -1,0 +1,35 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="row justify-content-center">
+    <div class="m-login">
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <form class="m-form m-form--login" action="{{ path("fos_user_security_check") }}" method="post">
+            {% if csrf_token %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+            {% endif %}
+
+            <div class="form-group form-group--login">
+                <label class="m-label-small" for="username">{{ 'security.login.username'|trans }}</label>
+                <input class="form-control m-input-text" type="text" id="username" name="_username"
+                       value="{{ last_username }}"
+                       required="required" autocomplete="username"/>
+            </div>
+            <div class="form-group form-group--login">
+                <label class="m-label-small" for="password">{{ 'security.login.password'|trans }}</label>
+                <input class="form-control m-input-text" type="password" id="password" name="_password"
+                       required="required"
+                       autocomplete="current-password"/>
+            </div>
+            <a href="{{ path('fos_user_resetting_request') }}" class="m-label-link-right">Mot de passe oublié ?</a>
+            <div>
+                <input class="btn m-button-medium" type="submit" id="_submit" name="_submit"
+                       value="{{ 'security.login.submit'|trans }}"/>
+            </div>
+            <a href="{{ path('fos_user_registration_register') }}" class="m-label-link-right">Créer un compte</a>
+        </form>
+    </div>
+</div>

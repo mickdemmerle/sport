@@ -1,0 +1,29 @@
+.form {
+    &.form-inline {
+
+        .form-group {
+            margin-bottom: 20px;
+
+            .m-label-small {
+                width: 200px;
+                display: inline-block;
+                line-height: 24px;
+                margin-top: 15px;
+            }
+
+            .m-input-text {
+                width: 240px;
+            }
+        }
+    }
+
+    .actions {
+        width: 100%;
+
+        .m-button-medium {
+            margin-top: 60px;
+        }
+    }
+
+    padding-bottom: 40px;
+}
