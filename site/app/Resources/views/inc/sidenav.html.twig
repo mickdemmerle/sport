@@ -1,0 +1,20 @@
+{% set currentPath = app.request.attributes.get('_route') %}
+<div class="side-nav">
+    <ul>
+        <li class="side-nav--menu dashboard">
+            <a{% if currentPath == 'dashboard_homepage' %} class="selected"{% endif %} href="{{ path('dashboard_homepage') }}">
+                <i class="material-icons">apps</i>
+            </a>
+        </li>
+        <li class="side-nav--menu configuration">
+            <a{% if currentPath == 'dashboard_configuration' %} class="selected"{% endif %} href="{{ path('dashboard_configuration') }}">
+                <i class="material-icons">fitness_center</i>
+            </a>
+        </li>
+        <li class="side-nav--menu profile">
+            <a{% if currentPath == 'dashboard_profile' %} class="selected"{% endif %} href="{{ path('dashboard_profile') }}">
+                <i class="material-icons">person</i>
+            </a>
+        </li>
+    </ul>
+</div>

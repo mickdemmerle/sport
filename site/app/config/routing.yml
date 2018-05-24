@@ -1,0 +1,26 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+    prefix: %prefix_path%
+
+client:
+    resource: '@ClientBundle/Controller/'
+    type: annotation
+    prefix: %prefix_path%
+
+security:
+    resource: "@AppSecurityBundle/Controller/"
+    type: annotation
+    prefix: %prefix_path%
+
+fos_user_registration:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: %prefix_path%
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: %prefix_path%
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix: %prefix_path%

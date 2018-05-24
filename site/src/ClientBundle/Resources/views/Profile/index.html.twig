@@ -1,0 +1,34 @@
+{% extends '@ClientBundle/layout.html.twig' %}
+
+{% block body %}
+    <div class="container-client m-client-profile">
+        <h1>{{ "Profile"|trans }}</h1>
+
+        <div class="content">
+            <div class="content-left">
+                <h2>Mon compte</h2>
+                <div class="profile-image">
+                    <svg class="icon icon-profile">
+                        <use xlink:href="{{ asset('sport/web/img/profile.svg'~'#default-profile') }}"></use>
+                    </svg>
+                </div>
+
+                <div>
+                    <label class="m-label-small">{{ "Nom"|trans }}</label>
+                    <label class="m-label m-label-yellow">{{ app.user.lastName }}</label>
+                </div>
+                <div>
+                    <label class="m-label-small">{{ "Prénom"|trans }}</label>
+                    <label class="m-label m-label-yellow">{{ app.user.firstName }}</label>
+                </div>
+                <div>
+                    <label class="m-label-small">{{ "Email"|trans }}</label>
+                    <label class="m-label m-label-yellow">{{ app.user.email }}</label>
+                </div>
+            </div>
+            <div class="content-right">
+                <p>{{ 'prochainement...'|trans }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

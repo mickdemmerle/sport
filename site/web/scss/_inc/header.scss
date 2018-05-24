@@ -1,0 +1,109 @@
+header {
+    background: #fff;
+    height: 100px;
+    text-align: center;
+    border-bottom: 1px solid #f3f3f3;
+    z-index: 1;
+
+    &.header-user {
+        height: 70px;
+        text-align: left;
+        position: fixed;
+        width: 100%;
+
+        .icon-logo {
+            height: 64px;
+            width: 64px;
+            margin-left: 40px;
+        }
+
+        .header-logout {
+            float: right;
+            padding: 25px 40px;
+            color: #777;
+
+            span {
+                line-height: 20px;
+                display: inline-block;
+                vertical-align: text-bottom;
+                margin-right: 5px;
+            }
+
+            i {
+                font-size: 15px;
+            }
+
+            &:hover {
+                text-decoration: none;
+
+                span, i {
+                    color: #000;
+                }
+            }
+        }
+
+        .btn-sidenav-toggle {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: $width-large-mobile) {
+    header {
+        height: 64px;
+
+        .icon {
+            &.icon-logo {
+                height: 64px;
+                width: 64px;
+            }
+        }
+
+        &.header-user {
+            top: 0;
+            height: 48px;
+
+            .icon {
+                &.icon-logo {
+                    margin: 0;
+                    height: 48px;
+                    width: 48px;
+                }
+            }
+
+            .header-logout {
+                position: absolute;;
+                top: 0;
+                right: 0;
+                height: 48px;
+                line-height: 20px;
+                padding: 14px 20px;
+
+                span {
+                    display: none;
+                }
+
+                i {
+                    font-size: 20px;
+                }
+            }
+
+            .btn-sidenav-toggle {
+                position: absolute;
+                height: 48px;
+                line-height: 20px;
+                padding: 14px 20px;
+                cursor: pointer;
+
+                i {
+                    font-size: 20px;
+                }
+            }
+
+            .icon-logo-cta {
+                display: block;
+                text-align: center;
+            }
+        }
+    }
+}

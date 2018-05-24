@@ -1,0 +1,36 @@
+.container-client {
+    margin-left: 120px;
+    padding-top: 70px;
+
+    h1 {
+        width: 100%;
+        line-height: 48px;
+        font-size: 18px;
+        color: black;
+        text-align: left;
+        text-transform: initial;
+        padding: 20px 0 10px 25px;
+    }
+
+    h2 {
+        font-size: 15px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: $yellow-medium;
+        padding-left: 20px;
+    }
+
+    .content {
+        min-height: 460px;
+        background: #fff;
+        margin: 0 25px 25px;
+
+        .content-left, .content-right {
+            padding: 20px 10px 0 20px;
+        }
+    }
+
+    @import '../client/profile/index',
+    '../client/homepage/index',
+    '../client/configuration/index';
+}

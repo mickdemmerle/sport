@@ -1,0 +1,9 @@
+.content {
+  display: flex; }
+  .content .content-left {
+    width: 480px;
+    background: #f3f3f3; }
+  .content .content-right {
+    width: 790px; }
+
+/*# sourceMappingURL=index.css.map */

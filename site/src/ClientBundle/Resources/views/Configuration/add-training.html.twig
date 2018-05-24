@@ -1,0 +1,34 @@
+{% extends '@ClientBundle/layout.html.twig' %}
+
+{% block body %}
+    <div class="container-client m-client-configuration-add-training">
+        <h1>{{ "Configuration"|trans }} / {{ "Ajouter un entrainement"|trans }}</h1>
+
+        <div class="content">
+            <h2>{{ "Ajouter un entrainement"|trans }}</h2>
+
+            <form class="form form-inline" method="post" action="{{ path('dashboard_configuration_add_training_confirm') }}">
+
+                <div class="form-group">
+                    <label class="m-label-small" for="name">{{ 'Nom'|trans }}</label>
+                    <input class="form-control m-input-text" type="text" id="name" name="name" required="required"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="m-label-small" for="days">{{ 'Jours'|trans }}</label>
+                    <input id="days-1" type="checkbox" name="days[]" value="0"><label for="days-1">{{ "Lundi"|trans }}</label>
+                    <input type="checkbox" name="days[]" value="1"><label>{{ "Mardi"|trans }}</label>
+                    <input type="checkbox" name="days[]" value="2"><label>{{ "Mercredi"|trans }}</label>
+                    <input type="checkbox" name="days[]" value="3"><label>{{ "Jeudi"|trans }}</label>
+                    <input type="checkbox" name="days[]" value="4"><label>{{ "Vendredi"|trans }}</label>
+                    <input type="checkbox" name="days[]" value="5"><label>{{ "Samedi"|trans }}</label>
+                    <input type="checkbox" name="days[]" value="6"><label>{{ "Dimanche"|trans }}</label>
+                </div>
+
+                <div>
+                    <input class="m-button-medium" type="submit" value="{{ "Ajouter"|trans }}">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

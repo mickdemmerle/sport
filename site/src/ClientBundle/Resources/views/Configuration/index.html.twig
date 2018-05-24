@@ -1,0 +1,25 @@
+{% extends '@ClientBundle/layout.html.twig' %}
+
+{% block body %}
+    <div class="container-client m-client-configuration">
+        <h1>{{ "Configuration"|trans }}</h1>
+
+        <div class="content">
+            <a href="{{ path('dashboard_configuration_add_training') }}" class="m-button-medium">{{ 'Ajouter un entrainement' }}</a>
+
+            <h2>Liste de mes entrainements</h2>
+            <table class="table">
+                <tr>
+                    <th>{{ "Nom"|trans }}</th>
+                    <th>{{ "Jours"|trans }}</th>
+                </tr>
+            {% for training in trainings %}
+                <tr>
+                    <td>{{ training.name }}</td>
+                    <td>{{ training.days|join(', ') }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

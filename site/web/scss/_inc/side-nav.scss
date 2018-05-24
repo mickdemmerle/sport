@@ -1,0 +1,57 @@
+.side-nav {
+    background: #fff;
+    position: fixed;
+    width: 120px;
+    height: 100%;
+    top: 70px;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+        margin-bottom: 0;
+
+        a {
+            padding: 40px;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            color: #C0C5D2;
+
+            &.selected {
+                color: $blue-light;
+
+                &:hover {
+                    color: $blue-light;
+                    cursor: default;
+                }
+            }
+
+            &:hover {
+                color: $blue-medium;
+            }
+        }
+
+    }
+}
+
+@media (max-width: $width-large-mobile) {
+    .side-nav {
+        width: 0;
+        overflow: hidden;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s;
+
+        &.open {
+            width: 120px;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            -o-transition: 0.5s;
+            transition: 0.5s;
+        }
+    }
+}
