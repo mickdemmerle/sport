@@ -1,0 +1,166 @@
+{% extends '@ClientBundle/layout.html.twig' %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset(prefix_path ~ '/bundles/client/js/add-training.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="container-client m-client-configuration-add-training">
+        <h1>{{ "Configuration"|trans }} / {{ "Modifier un entrainement"|trans }}</h1>
+
+        <div class="content">
+            <h2>{{ "Modifier un entrainement"|trans }}</h2>
+
+            <form class="form form-inline" method="post"
+                  action="{{ path('dashboard_configuration_edit_training_confirm', {'id':training.id}) }}">
+
+                <div class="form-training-configuration">
+                    <h3>
+                        <i class="material-icons">filter_1</i>
+                        {{ "Informations"|trans }}
+                    </h3>
+                    <div class="form-group">
+                        <label class="m-label-small" for="name">{{ 'Nom'|trans }}</label>
+                        <input class="form-control m-input-text" type="text" id="name" name="name"
+                               value="{{ training.name }}" required="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="m-label-small" for="days">{{ 'Jours'|trans }}</label>
+                        {% for allDayId, allDay in allDays %}
+                            {% set daysIsSelected = false %}
+
+                            {% for daysId, days in training.days %}
+                                {% if daysId == allDayId %}
+                                    {% set daysIsSelected = true %}
+                                {% endif %}
+                            {% endfor %}
+                            <input{% if daysIsSelected %} checked="checked"{% endif %} class="chk-days"
+                                                                                       id="days-{{ loop.index0 }}"
+                                                                                       type="checkbox" name="days[]"
+                                                                                       value="{{ allDayId }}">
+                            <label class="label-days" for="days-{{ loop.index0 }}">{{ allDay|trans }}</label>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="m-label-small" for="sessionWorkoutCount">{{ 'Nombre de séances'|trans }}</label>
+                        <input class="form-control m-input-text" type="number" id="sessionWorkoutCount"
+                               name="sessionWorkoutCount" value="{{ training.sessionWorkoutCount }}" required="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="m-label-small" for="sessionWorkoutDateStart">{{ 'Date de début'|trans }}</label>
+                        <input class="form-control m-input-text" type="date" id="sessionWorkoutDateStart"
+                               name="sessionWorkoutDateStart" value="{{ "now"|date('Y-m-d') }}" required="required"/>
+                    </div>
+
+                    <h3>
+                        <i class="material-icons">filter_2</i>
+                        {{ "Exercices"|trans }}
+                    </h3>
+                    <div id="group-exercises">
+                        <table class="table table-exercises">
+                            <tr>
+                                <th>{{ "Nom"|trans }}</th>
+                                <th>{{ "Répétition max."|trans }}</th>
+                            </tr>
+                            {% for training_exercise in training.exercises %}
+                                <tr>
+                                    <td>
+                                        <select class="js-select-exercises" name="exercisesName[]">
+                                            <option value="">-</option>
+                                            {% for exercise in exercises %}
+                                                <option
+                                                        {% if training_exercise.id == exercise.id %} selected{% endif %}
+                                                        value="{{ exercise.id }}">
+                                                    {{ exercise.name }}
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                    <td>
+                                        <input class="form-control m-input-text" value="{{ training_exercise.repetitionMax }}" name="exercisesRM[]"
+                                               type="number">
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td>
+                                    <select id="select-all-exercises" class="js-select-exercises" name="exercisesName[]">
+                                        <option value="">-</option>
+                                        {% for exercise in exercises %}
+                                            <option value="{{ exercise.id }}">{{ exercise.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td><input placeholder="8" class="form-control m-input-text" name="exercisesRM[]" type="number"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="btn-add-exercise">
+                        <i class="material-icons">add</i>
+                        <span>{{ "Ajouter"|trans }}</span>
+                    </div>
+
+                    <div class="form-group form-group-action">
+                        <input class="m-button-medium  btn-show-preview" type="button" value="{{ "Modifier"|trans }}">
+                    </div>
+
+                </div>
+
+                <div class="session-workout-preview">
+                    <div class="preview-close">
+                        <i class="material-icons">clear</i>
+                    </div>
+                    <h3>
+                        <i class="material-icons">filter_3</i>
+                        {{ "Séances"|trans }}
+                    </h3>
+                    <div id="group-session-workout">
+                        <table class="table table-session-workout">
+                            <tr>
+                                <th>{{ "Séance"|trans }}</th>
+                                <th>{{ "Jour"|trans }}</th>
+                                <th>{{ "Programme"|trans }}</th>
+                            </tr>
+                            {% for workout in training.workouts %}
+                                <tr class="js-old-session-workout-line">
+                                    <td>{{ loop.index }}</td>
+                                    <td>
+                                        <span>{{ workout.date|date('d') }}</span>
+                                        <span>{{ workout.date|date('F') }}</span>
+                                    </td>
+                                    <td>
+                                        <div class="exercices-details">
+                                            {% for workoutExercise in workout.workoutExercises %}
+                                                {% spaceless %}
+                                                <div class="exercice-details">
+                                                    <span class="exercice-details-name">{{ workoutExercise.exercise.name }}</span>
+                                                    <span class="exercice-details-serie">
+                                                        <i class="material-icons">loop</i>
+                                                        <span>{{ workoutExercise.serie }}</span>
+                                                        <i class="material-icons">clear</i>
+                                                        <span>{{ workoutExercise.repetition }}</span>
+                                                    </span>
+                                                    <span class="exercice-details-break">
+                                                        <i class="material-icons">timer</i>
+                                                        {{ workoutExercise.timeout }} sec
+                                                    </span>
+                                                </div>
+                                                {% endspaceless %}
+                                            {% endfor %}
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                    <div class="form-group form-group-action">
+                        <input class="m-button-medium" type="submit" value="{{ "Confirmer"|trans }}">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

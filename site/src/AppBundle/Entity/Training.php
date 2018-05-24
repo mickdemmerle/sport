@@ -12,6 +12,24 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Training
 {
+    const DAY_MONDAY = 0;
+    const DAY_TUESDAY = 1;
+    const DAY_WEDNESDAY = 2;
+    const DAY_THURSDAY = 3;
+    const DAY_FRIDAY = 4;
+    const DAY_SATURDAY = 5;
+    const DAY_SUNDAY = 6;
+
+    private static $allDays = [
+        self::DAY_MONDAY => 'lundi',
+        self::DAY_TUESDAY => 'mardi',
+        self::DAY_WEDNESDAY => 'mercredi',
+        self::DAY_THURSDAY => 'jeudi',
+        self::DAY_FRIDAY => 'vendredi',
+        self::DAY_SATURDAY => 'samedi',
+        self::DAY_SUNDAY => 'dimanche',
+    ];
+
     /**
      * @var int
      *
@@ -32,7 +50,7 @@ class Training
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
-    */
+     */
     private $name;
 
     /**
@@ -45,10 +63,24 @@ class Training
     /**
      * @var Member $member
      *
-     * @ORM\ManyToOne(targetEntity="Sport\Bundle\AppBundle\Entity\Member", inversedBy="Trainings", cascade={"persist", "merge"})
+     * @ORM\ManyToOne(targetEntity="Sport\Bundle\AppBundle\Entity\Member", inversedBy="trainings", cascade={"persist", "merge"})
      * @ORM\JoinColumn(name="member_id", referencedColumnName="id")
      */
     private $member;
+
+    /**
+     * @var array $trainingExercises
+     *
+     * @ORM\OneToMany(targetEntity="Sport\Bundle\AppBundle\Entity\TrainingExercise", mappedBy="training", cascade={"persist", "remove", "merge"})
+     */
+    private $trainingExercises;
+
+    /**
+     * @var array $workouts
+     *
+     * @ORM\OneToMany(targetEntity="Sport\Bundle\AppBundle\Entity\Workout", mappedBy="training", cascade={"persist", "remove", "merge"})
+     */
+    private $workouts;
 
     public function __construct($name, $member)
     {
@@ -83,10 +115,14 @@ class Training
 
     /**
      * @param string $name
+     *
+     * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -99,10 +135,14 @@ class Training
 
     /**
      * @param array $days
+     *
+     * @return $this
      */
     public function setDays($days)
     {
         $this->days = $days;
+
+        return $this;
     }
 
     /**
@@ -115,10 +155,58 @@ class Training
 
     /**
      * @param Member $member
+     *
+     * @return $this
      */
     public function setMember($member)
     {
         $this->member = $member;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTrainingExercises()
+    {
+        return $this->trainingExercises;
+    }
+
+    /**
+     * @param array $trainingExercises
+     *
+     * @return $this
+     */
+    public function setTrainingExercises($trainingExercises)
+    {
+        $this->trainingExercises = $trainingExercises;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getAllDays()
+    {
+        return self::$allDays;
+    }
+
+    /**
+     * @return array
+     */
+    public function getWorkouts()
+    {
+        return $this->workouts;
+    }
+
+    /**
+     * @param array $workouts
+     */
+    public function setWorkouts($workouts)
+    {
+        $this->workouts = $workouts;
     }
 }
 

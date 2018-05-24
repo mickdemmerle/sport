@@ -1,9 +1,154 @@
+$formGroupWidth: 800px;
+
+.m-card {
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+
+    .m-card-image {
+        background: $blue-hard;
+        color: #fff;
+        width: 100%;
+    }
+}
+
 &.m-client-configuration {
     .content {
         padding: 20px;
     }
-}
 
+    .m-card {
+        margin-bottom: 20px;
+
+        &:hover {
+            cursor: pointer;
+            background: #fcfcfc;
+        }
+    }
+
+    .m-card-add {
+        .m-card-image {
+            background: #eee;
+        }
+
+        .training-exercises {
+            text-align: center;
+        }
+
+        .material-icons {
+            color: #eee;
+        }
+
+        &:hover {
+            background: #fff;
+
+            .m-card-image {
+                background: #ddd;
+            }
+
+            .material-icons {
+                color: #ddd;
+            }
+        }
+    }
+
+    .listing-training {
+        margin-top: 60px;
+
+        .m-card-add {
+            .material-icons {
+                font-size: 130px;
+            }
+        }
+
+        .training-image {
+            height: 140px;
+            line-height: 130px;
+            text-align: center;
+            font-size: 40px;
+            text-transform: uppercase;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .training-description {
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+            width: 100%;
+            padding-top: 10px;
+            height: 115px;
+
+            .training-name {
+                font-size: 17px;
+                padding-bottom: 10px;
+                padding-left: 10px;
+            }
+
+            .module-training-days {
+                padding: 20px 10px;
+            }
+        }
+
+        .training-exercises {
+            padding: 20px;
+            width: 100%;
+            overflow: scroll;
+            height: 165px;
+
+            table {
+                width: 100%;
+                tr {
+                    td {
+                        border: none;
+                        font-size: 12px;
+                        padding: 4px 20px 4px 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .listing-exercise {
+        margin-top: 60px;
+
+        .m-card-add {
+            .material-icons {
+                font-size: 65px;
+            }
+        }
+
+        .exercise-image {
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            font-size: 20px;
+            text-transform: uppercase;
+            vertical-align: top;
+        }
+
+        .exercise-description {
+            height: 100px;
+            padding: 20px;
+            text-align: center;
+        }
+    }
+
+    .m-button-medium {
+        margin-top: 40px;
+        margin-left: 20px;
+    }
+
+    .table {
+        tr {
+            &:first-child {
+                td {
+                    border-top: none;
+                }
+            }
+        }
+    }
+}
 
 &.m-client-configuration-add-training {
     .content {
@@ -12,6 +157,208 @@
 
     .form {
         padding-left: 20px;
-        width: 700px;
+        width: $formGroupWidth;
+    }
+
+    h3 {
+        padding-top: 40px;
+        padding-bottom: 20px;
+        border-top: none;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 10px;
+        font-weight: bold;
+
+        .material-icons {
+            font-size: 15px;
+            color: #777;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    }
+
+    .form-group-action {
+        width: 100%;
+        padding-top: 40px;
+        margin-top: 20px;
+    }
+
+    #group-exercises {
+        width: $formGroupWidth;
+        max-height: 400px;
+        overflow: scroll;
+    }
+
+    #group-session-workout {
+        min-height: 60%;
+        max-height: 60%;
+        overflow: scroll;
+    }
+
+    .chk-days {
+        margin-right: 3px;
+        margin-top: 1px;
+    }
+
+    .label-days {
+        margin-right: 20px;
+    }
+
+    #btn-add-exercise {
+        cursor: pointer;
+        color: #999;
+
+        &:hover {
+            color: #000;
+        }
+
+        i {
+            font-size: 15px;
+        }
+
+        span {
+            vertical-align: text-bottom;
+        }
+    }
+
+    .table-exercises {
+        tr {
+            th {
+                border: none;
+                background: #f3f3f3;
+            }
+
+            td {
+                vertical-align: bottom;
+            }
+        }
+    }
+
+    .session-workout-preview {
+        display: none;
+        position: absolute;
+        background: #fff;
+        border: 1px solid #ddd;
+        padding: 30px;
+        -webkit-box-shadow: 0 0 10px #999;
+        -moz-box-shadow: 0 0 10px #999;
+        box-shadow: 0 0 10px #999;
+        width: 80%;
+        height: 80%;
+
+        .preview-close {
+            float: right;
+            cursor: pointer;
+            color: #999;
+
+            &:hover {
+                color: #000;
+            }
+        }
+    }
+
+    .table-session-workout {
+
+        tr {
+            th {
+                text-align: center;
+                border: none;
+                background: #f3f3f3;
+
+                &:nth-child(1){
+                    width: 100px;
+                }
+
+                &:nth-child(2){
+                    width: 75px;
+                }
+            }
+
+            td{
+                text-align: center;
+                vertical-align: middle;
+
+                &:nth-child(1) {
+                    font-size: 25px;
+                    font-weight: 100;
+                }
+
+                &:nth-child(2) {
+                    span{
+                        display: block;
+
+                        &:nth-child(1) {
+                            font-size: 22px;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(even)
+            {
+                td {
+                    &:nth-child(2) {
+                        background: #0060c1;
+                        color: #fff;
+                    }
+                }
+            }
+
+            &:nth-child(odd)
+            {
+                td {
+                    &:nth-child(2) {
+                        color: #0060c1;
+                    }
+                }
+            }
+        }
+
+        .exercices-details {
+
+            .exercice-details {
+
+                .exercice-details-name{
+                    display: inline-block;
+                    width: 200px;
+                    margin-right: 20px;
+                    overflow: hidden;
+                }
+
+                .exercice-details-serie{
+                    display: inline-block;
+                    width: 100px;
+                    margin-right: 20px;
+
+                    .material-icons {
+                        vertical-align: middle;
+                        font-size: 13px;
+                        color: #777;
+                        margin: 0 5px;
+                    }
+                }
+
+                .exercice-details-break{
+                    display: inline-block;
+                    width: 100px;
+                    color: #777;
+
+                    .material-icons {
+                        vertical-align: middle;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+&.m-client-configuration-add-exercise {
+    .content {
+        padding: 20px;
+    }
+
+    .form-group {
+        padding-left: 20px;
+        padding-top: 20px;
     }
 }
