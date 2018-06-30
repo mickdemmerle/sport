@@ -76,8 +76,11 @@ class ExerciseController extends Controller
      * @Route("/configuration/exercise/edit/{id}/confirm", name="dashboard_configuration_edit_exercise_confirm")
      *
      * @param int $id
-     * @return Response
-     * @throws ExerciseNotFoundException
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function editExerciseConfirm($id, Request $request)
     {

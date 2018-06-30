@@ -4,9 +4,9 @@
 
 {% block fos_user_content %}
     <div class="m-register-confirmed text-center">
-        <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+        <p>{{ 'registration.confirmed'|trans({'%username%': user.firstname}) }}</p>
         <div>
-            <a class="btn m-button-medium" href="{{ path('homepage') }}">{{ 'accèder à mon compte'|trans }}</a>
+            <a class="btn m-button-medium" href="{{ path('dashboard_homepage') }}">{{ 'accèder à mon compte'|trans }}</a>
         </div>
     </div>
 {% endblock fos_user_content %}

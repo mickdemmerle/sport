@@ -32,4 +32,25 @@ class ExerciseRepository extends EntityRepository
 
         return $qb->getQuery()->getOneOrNullResult();
     }
+
+    /**
+     * @param Member $member
+     *
+     * @return array
+     */
+    public function findExercisesByMember(Member $member)
+    {
+        $parameters = array(
+            'member' => $member
+        );
+
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $qb->select('exercise')
+            ->from('AppBundle:Exercise', 'exercise')
+            ->where('exercise.member = :member')
+            ->orderBy('exercise.createdOn', 'ASC')
+            ->setParameters($parameters);
+
+        return $qb->getQuery()->getResult();
+    }
 }

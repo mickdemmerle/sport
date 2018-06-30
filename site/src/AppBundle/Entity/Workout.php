@@ -8,10 +8,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="workout")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Sport\Bundle\AppBundle\Repository\WorkoutRepository")
  */
 class Workout
 {
+    const NUMBER_WORKOUT_DASHBOARD = 14;
+
     /**
      * @var int
      *
@@ -29,7 +31,7 @@ class Workout
     private $createdOn;
 
     /**
-     * @var integer
+     * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime", nullable=false)
      */
@@ -120,7 +122,7 @@ class Workout
     }
 
     /**
-     * @return int
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -128,9 +130,9 @@ class Workout
     }
 
     /**
-     * @param int $date
+     * @param \DateTime $date
      */
-    public function setDate($date)
+    public function setDate(\DateTime $date)
     {
         $this->date = $date;
     }

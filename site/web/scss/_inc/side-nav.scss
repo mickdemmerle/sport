@@ -1,5 +1,6 @@
 .side-nav {
     background: #fff;
+    z-index: 1;
     position: fixed;
     width: 120px;
     height: 100%;
@@ -38,6 +39,7 @@
 @media (max-width: $width-large-mobile) {
     .side-nav {
         width: 0;
+        top: 48px;
         overflow: hidden;
         -webkit-transition: 0.3s;
         -moz-transition: 0.3s;

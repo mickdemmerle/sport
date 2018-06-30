@@ -30,6 +30,7 @@ security:
 
     access_control:
         - { path: ^%prefix_path%/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^%prefix_path%/request, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^%prefix_path%/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^%prefix_path%/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^%prefix_path%/, roles: [ 'ROLE_USER' ]}

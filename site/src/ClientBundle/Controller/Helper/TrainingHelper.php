@@ -4,7 +4,6 @@ namespace Sport\Bundle\ClientBundle\Controller\Helper;
 
 use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\NonUniqueResultException;
-use Sport\Bundle\AppBundle\Repository\ExerciseRepository;
 use Sport\Bundle\AppBundle\Repository\TrainingRepository;
 use Sport\Domain\Training\Exception\TrainingNotFoundException;
 use Sport\Domain\Training\TrainingDTO;
@@ -27,27 +26,11 @@ trait TrainingHelper
     }
 
     /**
-     * @return array
-     */
-    private function getAllTrainings()
-    {
-        $trainings = $this->getTrainingRepository()->findTrainingsByMember($this->getUser());
-        $trainingDTOs = [];
-
-        foreach ($trainings as $training) {
-            $trainingDTOs[] = $this->trainingFactory->build($training);
-        }
-
-        return $trainingDTOs;
-    }
-
-    /**
      * @param int $id
      *
      * @return TrainingDTO
      *
      * @throws TrainingNotFoundException
-     * @throws NonUniqueResultException
      */
     private function getOneTraining($id)
     {
@@ -60,38 +43,5 @@ trait TrainingHelper
         }
 
         return $this->trainingFactory->build($training);
-    }
-
-    /**
-     * @return array
-     */
-    private function getAllExercisesForOneMember()
-    {
-        $dtos = [];
-        $member = $this->getUser();
-
-        $exercises = $this->getExerciseRepository()->findAll();
-
-        foreach ($exercises as $exercise) {
-            $dtos[] = $this->exerciseFactory->build($exercise);
-        }
-
-        return $dtos;
-    }
-
-    /**
-     * @return ObjectRepository|TrainingRepository
-     */
-    private function getTrainingRepository()
-    {
-        return $this->getDoctrine()->getRepository('Sport\Bundle\AppBundle\Entity\Training');
-    }
-
-    /**
-     * @return ObjectRepository|ExerciseRepository
-     */
-    private function getExerciseRepository()
-    {
-        return $this->getDoctrine()->getRepository('Sport\Bundle\AppBundle\Entity\Exercise');
     }
 }

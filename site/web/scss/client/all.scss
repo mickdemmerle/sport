@@ -43,3 +43,19 @@
     '../client/homepage/index',
     '../client/configuration/index';
 }
+
+@media (max-width: $width-large-mobile) {
+    .container-client {
+        margin-left:0;
+
+        h1 {
+            line-height: 30px;
+            padding-top: 10px;
+        }
+
+        .content {
+            min-height: auto;
+            margin: 0 5px 5px;
+        }
+    }
+}

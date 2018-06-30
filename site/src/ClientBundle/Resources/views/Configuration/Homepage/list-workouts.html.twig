@@ -1,0 +1,43 @@
+<div class="content">
+    <h2>{{ "Mes séances"|trans }} ({{ workouts|length }})</h2>
+
+    <div id="group-session-workout">
+        <table class="table table-session-workout">
+            <tr>
+                <th>{{ "Séance"|trans }}</th>
+                <th>{{ "Jour"|trans }}</th>
+                <th>{{ "Programme"|trans }}</th>
+            </tr>
+            {% for workout in workouts %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>
+                        <span>{{ workout.date|date('d') }}</span>
+                        <span>{{ workout.date|date('F') }}</span>
+                    </td>
+                    <td>
+                        <div class="exercices-details">
+                            {% for workoutExercise in workout.workoutExercises %}
+                                {% spaceless %}
+                                    <div class="exercice-details">
+                                        <span class="exercice-details-name">{{ workoutExercise.exercise.name }}</span>
+                                        <span class="exercice-details-serie">
+                                                        <i class="material-icons">loop</i>
+                                                        <span>{{ workoutExercise.serie }}</span>
+                                                        <i class="material-icons">clear</i>
+                                                        <span>{{ workoutExercise.repetition }}</span>
+                                                    </span>
+                                        <span class="exercice-details-break">
+                                                        <i class="material-icons">timer</i>
+                                            {{ workoutExercise.timeout }} sec
+                                                    </span>
+                                    </div>
+                                {% endspaceless %}
+                            {% endfor %}
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>

@@ -1,13 +1,78 @@
 &.m-client-homepage {
     .content {
-        display: flex;
+        padding: 20px;
 
-        .content-left {
-            width: 480px;
-        }
+        .next-workout{
+            width: 300px;
+            margin-right: 40px;
 
-        .content-right {
-            width: 790px;
+            &.next-workout-status-past{
+                .next-workout-content{
+                    .date{
+                        background: #f9a7ab;
+                    }
+                }
+
+                .m-button-medium {
+                    background: #f9a7ab;
+                }
+            }
+
+            &.next-workout-status-futur{
+                .next-workout-content{
+                    .date{
+                        background: #ddd;
+                    }
+                }
+
+                .m-button-medium {
+                    background: #ddd;
+                }
+            }
+
+            .next-workout-content{
+                border:1px solid #f3f3f3;
+                text-align: center;
+                min-height: 450px;
+
+                .date {
+                    display: inline-block;
+                    text-align: center;
+                    vertical-align: middle;
+                    background: #0060c1;
+                    color: #fff;
+                    float: left;
+                    width: 60px;
+                    height: 80px;
+                    padding: 10px 0;
+
+                    span {
+                        display: block;
+
+                        &:nth-child(1) {
+                            font-size: 22px;
+                        }
+                    }
+                }
+
+                .name{
+                    display: inline-block;
+                    font-size: 16px;
+                    font-weight: 500;
+                    margin: 0;
+                    line-height: 80px;
+                }
+
+                .exercises{
+                    padding: 30px 0;
+                    font-weight: 700;
+                    min-height: 300px;
+                }
+            }
+
+            .m-button-medium{
+                width: 100%;
+            }
         }
     }
 

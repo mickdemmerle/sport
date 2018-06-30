@@ -14,7 +14,7 @@ security:
     prefix: %prefix_path%
 
 fos_user_registration:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    resource: "@AppSecurityBundle/Resources/config/routing/registration.xml"
     prefix: %prefix_path%
 
 fos_user_resetting:
