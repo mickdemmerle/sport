@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Sport\Bundle\AppBundle\AppBundle(),
             new Sport\Bundle\AppSecurityBundle\AppSecurityBundle(),
             new Sport\Bundle\ClientBundle\ClientBundle(),
+            new Sport\Bundle\StartBundle\StartBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

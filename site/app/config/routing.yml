@@ -13,6 +13,11 @@ security:
     type: annotation
     prefix: %prefix_path%
 
+start:
+    resource: "@StartBundle/Controller/"
+    type: annotation
+    prefix: %prefix_path%
+
 fos_user_registration:
     resource: "@AppSecurityBundle/Resources/config/routing/registration.xml"
     prefix: %prefix_path%

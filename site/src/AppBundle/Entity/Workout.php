@@ -31,6 +31,20 @@ class Workout
     private $createdOn;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="smallint", options={"default" = 0}, nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="progression", type="smallint", options={"default" = 0}, nullable=false)
+     */
+    private $progression;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime", nullable=false)
@@ -87,6 +101,38 @@ class Workout
     public function getCreatedOn()
     {
         return $this->createdOn;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return int
+     */
+    public function getProgression()
+    {
+        return $this->progression;
+    }
+
+    /**
+     * @param int $progression
+     */
+    public function setProgression($progression)
+    {
+        $this->progression = $progression;
     }
 
     /**

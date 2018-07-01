@@ -39,6 +39,7 @@ twig:
         prefix_path: '%prefix_path%'
     paths:
         '%kernel.root_dir%/../src/ClientBundle/Resources/views': ClientBundle
+        '%kernel.root_dir%/../src/StartBundle/Resources/views': StartBundle
 
 # Doctrine Configuration
 doctrine:

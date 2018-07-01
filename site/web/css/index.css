@@ -463,24 +463,31 @@ h1 {
         color: #fff;
         line-height: 420px;
         letter-spacing: 2px; }
-  .container-client.m-client-homepage .content {
-    padding: 20px; }
-    .container-client.m-client-homepage .content .next-workout {
+  .container-client.m-client-homepage .workout-carousel {
+    padding: 20px 0; }
+    .container-client.m-client-homepage .workout-carousel .next-workout {
       width: 300px;
       margin-right: 40px; }
-      .container-client.m-client-homepage .content .next-workout.next-workout-status-past .next-workout-content .date {
-        background: #f9a7ab; }
-      .container-client.m-client-homepage .content .next-workout.next-workout-status-past .m-button-medium {
-        background: #f9a7ab; }
-      .container-client.m-client-homepage .content .next-workout.next-workout-status-futur .next-workout-content .date {
+      .container-client.m-client-homepage .workout-carousel .next-workout.next-workout-status-past {
+        color: #000; }
+        .container-client.m-client-homepage .workout-carousel .next-workout.next-workout-status-past .next-workout-content .date {
+          background: #f9a7ab; }
+        .container-client.m-client-homepage .workout-carousel .next-workout.next-workout-status-past .m-button-medium {
+          background: #f9a7ab; }
+      .container-client.m-client-homepage .workout-carousel .next-workout.next-workout-status-futur .next-workout-content .date {
         background: #ddd; }
-      .container-client.m-client-homepage .content .next-workout.next-workout-status-futur .m-button-medium {
+      .container-client.m-client-homepage .workout-carousel .next-workout.next-workout-status-futur .m-button-medium {
         background: #ddd; }
-      .container-client.m-client-homepage .content .next-workout .next-workout-content {
+      .container-client.m-client-homepage .workout-carousel .next-workout .next-workout-content {
         border: 1px solid #f3f3f3;
         text-align: center;
-        min-height: 450px; }
-        .container-client.m-client-homepage .content .next-workout .next-workout-content .date {
+        min-height: 450px;
+        background: #fff; }
+        .container-client.m-client-homepage .workout-carousel .next-workout .next-workout-content a {
+          color: #000; }
+          .container-client.m-client-homepage .workout-carousel .next-workout .next-workout-content a:hover {
+            text-decoration: none; }
+        .container-client.m-client-homepage .workout-carousel .next-workout .next-workout-content .date {
           display: inline-block;
           text-align: center;
           vertical-align: middle;
@@ -490,22 +497,25 @@ h1 {
           width: 60px;
           height: 80px;
           padding: 10px 0; }
-          .container-client.m-client-homepage .content .next-workout .next-workout-content .date span {
+          .container-client.m-client-homepage .workout-carousel .next-workout .next-workout-content .date span {
             display: block; }
-            .container-client.m-client-homepage .content .next-workout .next-workout-content .date span:nth-child(1) {
+            .container-client.m-client-homepage .workout-carousel .next-workout .next-workout-content .date span:nth-child(1) {
               font-size: 22px; }
-        .container-client.m-client-homepage .content .next-workout .next-workout-content .name {
+        .container-client.m-client-homepage .workout-carousel .next-workout .next-workout-content .name {
           display: inline-block;
           font-size: 16px;
           font-weight: 500;
           margin: 0;
           line-height: 80px; }
-        .container-client.m-client-homepage .content .next-workout .next-workout-content .exercises {
+        .container-client.m-client-homepage .workout-carousel .next-workout .next-workout-content .exercises {
           padding: 30px 0;
           font-weight: 700;
-          min-height: 300px; }
-      .container-client.m-client-homepage .content .next-workout .m-button-medium {
-        width: 100%; }
+          min-height: 320px; }
+          .container-client.m-client-homepage .workout-carousel .next-workout .next-workout-content .exercises p {
+            font-weight: 200; }
+      .container-client.m-client-homepage .workout-carousel .next-workout .m-button-medium {
+        width: 100%;
+        margin-bottom: 0; }
   .container-client .m-card {
     -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
@@ -701,6 +711,57 @@ h1 {
       line-height: 30px;
       padding-top: 10px; }
     .container-client .content {
+      min-height: auto;
+      margin: 0 5px 5px; } }
+.container-start {
+  margin-left: 120px;
+  padding-top: 70px; }
+  .container-start .content {
+    min-height: 460px;
+    background: #fff;
+    margin: 0 25px 25px; }
+  .container-start.m-start-homepage .start-training {
+    text-align: center; }
+    .container-start.m-start-homepage .start-training.start-training-hidden {
+      display: none; }
+    .container-start.m-start-homepage .start-training .start-training-image {
+      margin: 20px auto 40px;
+      height: 100px;
+      width: 100px;
+      background: #ddd;
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      border-radius: 100px;
+      line-height: 100px; }
+    .container-start.m-start-homepage .start-training .start-training-name {
+      font-size: 18px;
+      font-weight: 600; }
+    .container-start.m-start-homepage .start-training .start-training-reps {
+      margin-bottom: 40px; }
+  .container-start.m-start-homepage .start-training-timeout {
+    display: none;
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    background: #0060C1;
+    margin: 20px auto;
+    line-height: 120px;
+    font-size: 35px;
+    font-weight: 100;
+    color: #fff;
+    -webkit-border-radius: 120px;
+    -moz-border-radius: 120px;
+    border-radius: 120px; }
+    .container-start.m-start-homepage .start-training-timeout.active {
+      display: block; }
+
+@media (max-width: 481px) {
+  .container-start {
+    margin-left: 0; }
+    .container-start h1 {
+      line-height: 30px;
+      padding-top: 10px; }
+    .container-start .content {
       min-height: auto;
       margin: 0 5px 5px; } }
 .module-training-days div {

@@ -20,26 +20,30 @@
     <div class="container-client m-client-homepage">
         <h1>{{ "Dashboard"|trans }}</h1>
 
-        <div class="content workout-carousel">
+        <div class="workout-carousel">
             {% for nextWorkout in nextWorkouts %}
-            <div class="next-workout next-workout-{{ nextWorkout.status }}">
-                <div class="next-workout-content">
-                    <div>
-                        <p class="date">
-                            <span>{{ nextWorkout.dateDay }}</span>
-                            <span>{{ nextWorkout.dateMonth }}</span>
-                        </p>
-                        <p class="name">{{ nextWorkout.trainingName }}</p>
-                    </div>
+                <div class="next-workout next-workout-{{ nextWorkout.status }}">
 
-                    <div class="exercises">
-                        {% for exercise in nextWorkout.exercises %}
-                            <p>{{ exercise.name }}</p>
-                        {% endfor %}
+                    <div class="next-workout-content">
+                        <a href="{{ path('start_homepage', {id: nextWorkout.id}) }}">
+                            <div>
+                                <p class="date">
+                                    <span>{{ nextWorkout.dateDay }}</span>
+                                    <span>{{ nextWorkout.dateMonth }}</span>
+                                </p>
+                                <p class="name">{{ nextWorkout.trainingName }}</p>
+                            </div>
+
+                            <div class="exercises">
+                                {% for exercise in nextWorkout.exercises %}
+                                    <p>{{ exercise.name }}</p>
+                                {% endfor %}
+                            </div>
+                            <div>{{ nextWorkout.totalWorkoutExercisesDone }}/{{ nextWorkout.totalWorkoutExercises }}</div>
+                            <input type="button" class="m-button-medium" value="{{ "Commencer"|trans }}">
+                        </a>
                     </div>
                 </div>
-                <input type="button" class="m-button-medium" value="{{ "Commencer"|trans }}">
-            </div>
             {% endfor %}
 
         </div>

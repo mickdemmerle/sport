@@ -15,6 +15,9 @@ class WorkoutExercise
     const DEFAULT_SERIE = 3;
     const DEFAULT_PERCENTAGE = 0.5;
 
+    const STATUS_TODO = 0;
+    const STATUS_DONE = 1;
+
     private static $percentages = [0.5, 0.6, 0.5, 0.6, 0.5, 0.6, 0.5];
     private static $series = [3, 4, 4, 3, 4, 3, 3];
 
@@ -90,6 +93,7 @@ class WorkoutExercise
     public function __construct(Member $member, Workout $workout, Exercise $exercise, $serie, $repetition, $timeout)
     {
         $this->createdOn = new \DateTime();
+        $this->status = self::STATUS_TODO;
         $this->member = $member;
         $this->workout = $workout;
         $this->exercise = $exercise;

@@ -22,8 +22,20 @@ class WorkoutRepository extends EntityRepository
         $qb->select('workout')
             ->from('AppBundle:Workout', 'workout')
             ->where('workout.member = :member')
-            ->orderBy('workout.date', 'ASC')
             ->setMaxResults(Workout::NUMBER_WORKOUT_DASHBOARD)
+            ->setParameters($parameters);
+
+        $workouts = $qb->getQuery()->getResult();
+
+        $parameters['workouts'] = $workouts;
+
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $qb->select('workout', 'workout_exercises')
+            ->from('AppBundle:Workout', 'workout')
+            ->join('workout.workoutExercises', 'workout_exercises')
+            ->where('workout.member = :member')
+            ->andWhere('workout.id in (:workouts)')
+            ->orderBy('workout.date', 'ASC')
             ->setParameters($parameters);
 
         return $qb->getQuery()->getResult();

@@ -1,0 +1,28 @@
+.container-start {
+    margin-left: 120px;
+    padding-top: 70px;
+
+    .content {
+        min-height: 460px;
+        background: #fff;
+        margin: 0 25px 25px;
+    }
+
+    @import '../start/homepage/index';
+}
+
+@media (max-width: $width-large-mobile) {
+    .container-start {
+        margin-left:0;
+
+        h1 {
+            line-height: 30px;
+            padding-top: 10px;
+        }
+
+        .content {
+            min-height: auto;
+            margin: 0 5px 5px;
+        }
+    }
+}
