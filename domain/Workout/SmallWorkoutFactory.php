@@ -38,10 +38,27 @@ class SmallWorkoutFactory
         $dto->dateMonth = $workout->getDate()->format('F');
         $dto->exercises = $this->computeExercises($workout->getWorkoutExercises());
         $dto->status = $this->computeStatus($workout->getDate());
-        $dto->totalWorkoutExercises = count($workout->getWorkoutExercises());
-        $dto->totalWorkoutExercisesDone = $this->computeTotalWorkoutExercisesDone($workout->getWorkoutExercises());
+        $dto->series = $this->computeSeries($workout->getWorkoutExercises());
 
         return $dto;
+    }
+
+    private function computeSeries($workoutExercises)
+    {
+        $series = array();
+
+        /** @var WorkoutExercise $workoutExercise */
+        foreach ($workoutExercises as $workoutExercise) {
+            $series[] = $workoutExercise->getSerie();
+        }
+
+        $series = array_unique($series);
+
+        if (count($series) === 1) {
+            return current($series);
+        }
+
+        return 0;
     }
 
     /**
@@ -79,23 +96,5 @@ class SmallWorkoutFactory
         }
 
         return self::WOKOUT_CLASS_FUTUR;
-    }
-
-    /**
-     * @param WorkoutExercise[] $workoutExercises
-     *
-     * @return int
-     */
-    private function computeTotalWorkoutExercisesDone($workoutExercises)
-    {
-        $count = 0;
-        /*
-        foreach ($workoutExercises as $workoutExercise) {
-            if ($workoutExercise->getStatus() === WorkoutExercise::STATUS_DONE) {
-                $count++;
-            }
-        }
-        */
-        return $count;
     }
 }

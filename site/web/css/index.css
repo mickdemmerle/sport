@@ -510,9 +510,13 @@ h1 {
         .container-client.m-client-homepage .workout-carousel .next-workout .next-workout-content .exercises {
           padding: 30px 0;
           font-weight: 700;
-          min-height: 320px; }
+          min-height: 280px; }
           .container-client.m-client-homepage .workout-carousel .next-workout .next-workout-content .exercises p {
             font-weight: 200; }
+        .container-client.m-client-homepage .workout-carousel .next-workout .next-workout-content .series {
+          padding: 20px 0; }
+          .container-client.m-client-homepage .workout-carousel .next-workout .next-workout-content .series .material-icons {
+            color: #ddd; }
       .container-client.m-client-homepage .workout-carousel .next-workout .m-button-medium {
         width: 100%;
         margin-bottom: 0; }
@@ -739,7 +743,6 @@ h1 {
     .container-start.m-start-homepage .start-training .start-training-reps {
       margin-bottom: 40px; }
   .container-start.m-start-homepage .start-training-timeout {
-    display: none;
     text-align: center;
     width: 120px;
     height: 120px;
@@ -751,9 +754,9 @@ h1 {
     color: #fff;
     -webkit-border-radius: 120px;
     -moz-border-radius: 120px;
-    border-radius: 120px; }
-    .container-start.m-start-homepage .start-training-timeout.active {
-      display: block; }
+    border-radius: 120px;
+    display: none;
+    cursor: pointer; }
 
 @media (max-width: 481px) {
   .container-start {

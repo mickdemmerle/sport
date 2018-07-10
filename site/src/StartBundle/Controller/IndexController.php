@@ -7,6 +7,7 @@ use Sport\Bundle\StartBundle\Controller\Helper\IndexHelper;
 use Sport\Domain\Start\TrainingFactory;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class IndexController extends Controller
 {
@@ -37,5 +38,18 @@ class IndexController extends Controller
         return $this->render('@StartBundle/Start/index.html.twig', [
             'trainings' => $trainings
         ]);
+    }
+
+
+    /**
+     * @Route("/start/{id}/confirm", name="start_training_confirm")
+     *
+     * @return RedirectResponse
+     */
+    public function trainingConfirmAction(Request $request, $id)
+    {
+        echo $id;
+
+        //return $this->redirectToRoute('dashboard_homepage');
     }
 }

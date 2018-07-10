@@ -25,7 +25,5 @@ class SmallWorkoutDTO
     public $status;
 
     /** @var int */
-    public $totalWorkoutExercises;
-
-    public $totalWorkoutExercisesDone;
+    public $series;
 }

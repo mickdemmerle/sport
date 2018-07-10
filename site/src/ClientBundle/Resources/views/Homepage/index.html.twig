@@ -39,7 +39,13 @@
                                     <p>{{ exercise.name }}</p>
                                 {% endfor %}
                             </div>
-                            <div>{{ nextWorkout.totalWorkoutExercisesDone }}/{{ nextWorkout.totalWorkoutExercises }}</div>
+                            {% if nextWorkout.series > 0 %}
+                            <div class="series">
+                                {% for i in 1..nextWorkout.series %}
+                                    <i class="material-icons">fiber_manual_record</i>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
                             <input type="button" class="m-button-medium" value="{{ "Commencer"|trans }}">
                         </a>
                     </div>
