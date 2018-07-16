@@ -56,7 +56,6 @@ class TrainingController extends Controller
         $exercises = $this->getAllExercisesForOneMember($member);
 
         return $this->render('@ClientBundle/Configuration/add-training.html.twig', [
-            'allDays' => Training::getAllDays(),
             'exercises' => $exercises,
         ]);
     }

@@ -25,24 +25,6 @@
                         <input class="form-control m-input-text" type="text" id="name" name="name" required="required"/>
                     </div>
 
-                    <div class="form-group">
-                        <label class="m-label-small" for="days">{{ 'Jours'|trans }}</label>
-                        {% for allDayId, allDay in allDays %}
-                            <input class="chk-days" id="days-{{ loop.index0 }}" type="checkbox" name="days[]"
-                                   value="{{ allDayId }}">
-                            <label class="label-days" for="days-{{ loop.index0 }}">{{ allDay|trans }}</label>
-                        {% endfor %}
-                    </div>
-
-                    <div class="form-group">
-                        <label class="m-label-small" for="sessionWorkoutCount">{{ 'Nombre de séances'|trans }}</label>
-                        <input class="form-control m-input-text" type="text" id="sessionWorkoutCount" name="sessionWorkoutCount" value="7" required="required"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="m-label-small" for="sessionWorkoutDateStart">{{ 'Date de début'|trans }}</label>
-                        <input class="form-control m-input-text" type="date" id="sessionWorkoutDateStart" name="sessionWorkoutDateStart" value="{{ "now"|date('Y-m-d') }}" required="required"/>
-                    </div>
-
                     <h3>
                         <i class="material-icons">filter_2</i>
                         {{ "Exercices"|trans }}

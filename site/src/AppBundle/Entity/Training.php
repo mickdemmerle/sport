@@ -68,12 +68,6 @@ class Training
      */
     private $member;
 
-    /**
-     * @var array $trainingExercises
-     *
-     * @ORM\OneToMany(targetEntity="Sport\Bundle\AppBundle\Entity\TrainingExercise", mappedBy="training", cascade={"persist", "remove", "merge"})
-     */
-    private $trainingExercises;
 
     /**
      * @var array $workouts
@@ -161,26 +155,6 @@ class Training
     public function setMember($member)
     {
         $this->member = $member;
-
-        return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getTrainingExercises()
-    {
-        return $this->trainingExercises;
-    }
-
-    /**
-     * @param array $trainingExercises
-     *
-     * @return $this
-     */
-    public function setTrainingExercises($trainingExercises)
-    {
-        $this->trainingExercises = $trainingExercises;
 
         return $this;
     }

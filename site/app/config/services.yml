@@ -31,8 +31,6 @@ services:
     Sport\Domain\Exercise\ExerciseManager: ~
     Sport\Domain\Exercise\ExerciseFactory: ~
 
-    Sport\Domain\TrainingExercise\TrainingExerciseManager: ~
-
     Sport\Domain\Modules\ModuleTrainingDaysFactory: ~
 
     Sport\Domain\Workout\WorkoutManager: ~
