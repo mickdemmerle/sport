@@ -3,7 +3,6 @@
         display: flex;
 
         .content-left {
-            width: 480px;
             background: #f3f3f3;
 
             .profile-image {
@@ -18,7 +17,6 @@
         }
 
         .content-right {
-            width: 790px;
             background: $blue-medium;
             text-align: center;
             vertical-align: middle;

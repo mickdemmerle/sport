@@ -15,6 +15,9 @@ class WorkoutExercise
     const DEFAULT_SERIE = 3;
     const DEFAULT_PERCENTAGE = 0.5;
 
+    const STATUS_TODO = 0;
+    const STATUS_DONE = 1;
+
     private static $percentages = [0.5, 0.6, 0.5, 0.6, 0.5, 0.6, 0.5];
     private static $series = [3, 4, 4, 3, 4, 3, 3];
 
@@ -37,13 +40,6 @@ class WorkoutExercise
     /**
      * @var integer
      *
-     * @ORM\Column(name="serie", type="integer", nullable=false)
-     */
-    private $serie;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="repetition", type="integer", nullable=false)
      */
     private $repetition;
@@ -54,6 +50,41 @@ class WorkoutExercise
      * @ORM\Column(name="timeout", type="integer", nullable=false)
      */
     private $timeout;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="position", type="integer", nullable=false)
+     */
+    private $position;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="smallint", nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="start_on", type="datetime", nullable=false)
+     */
+    private $startOn;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end_on", type="datetime", nullable=false)
+     */
+    private $endOn;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="stat_repetition", type="integer", nullable=false)
+     */
+    private $statRepetition;
 
     /**
      * @var Member
@@ -83,17 +114,16 @@ class WorkoutExercise
      * @param Member $member
      * @param Workout $workout
      * @param Exercise $exercise
-     * @param int $serie
      * @param int $repetition
      * @param int $timeout
      */
-    public function __construct(Member $member, Workout $workout, Exercise $exercise, $serie, $repetition, $timeout)
+    public function __construct(Member $member, Workout $workout, Exercise $exercise, $repetition, $timeout)
     {
         $this->createdOn = new \DateTime();
+        $this->status = self::STATUS_TODO;
         $this->member = $member;
         $this->workout = $workout;
         $this->exercise = $exercise;
-        $this->serie = $serie;
         $this->repetition = $repetition;
         $this->timeout = $timeout;
     }
@@ -128,22 +158,6 @@ class WorkoutExercise
     public function setMember($member)
     {
         $this->member = $member;
-    }
-
-    /**
-     * @return int
-     */
-    public function getSerie()
-    {
-        return $this->serie;
-    }
-
-    /**
-     * @param int $serie
-     */
-    public function setSerie($serie)
-    {
-        $this->serie = $serie;
     }
 
     /**
@@ -208,6 +222,86 @@ class WorkoutExercise
     public function setExercise($exercise)
     {
         $this->exercise = $exercise;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param int $position
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getStartOn()
+    {
+        return $this->startOn;
+    }
+
+    /**
+     * @param \DateTime $startOn
+     */
+    public function setStartOn($startOn)
+    {
+        $this->startOn = $startOn;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getEndOn()
+    {
+        return $this->endOn;
+    }
+
+    /**
+     * @param \DateTime $endOn
+     */
+    public function setEndOn($endOn)
+    {
+        $this->endOn = $endOn;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatRepetition()
+    {
+        return $this->statRepetition;
+    }
+
+    /**
+     * @param int $statRepetition
+     */
+    public function setStatRepetition($statRepetition)
+    {
+        $this->statRepetition = $statRepetition;
     }
 
     /**

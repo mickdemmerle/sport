@@ -1,17 +1,57 @@
 {% extends '@ClientBundle/layout.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset(prefix_path ~ '/web/css/flickity.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset(prefix_path ~ '/web/js/flickity.pkgd.min.js') }}"></script>
+
+    <script>
+        $('.workout-carousel').flickity({
+            contain: true,
+            wrapAround: true,
+            initialIndex: {{ positionWorkoutNow }}
+        });
+    </script>
+{% endblock %}
+
 {% block body %}
     <div class="container-client m-client-homepage">
         <h1>{{ "Dashboard"|trans }}</h1>
 
-        <div class="content">
-            <div class="content-left">
-                <h2>{{ 'programme du jour'|trans }}</h2>
-                
-            </div>
-            <div class="content-right">
-                <h2>{{ 'Historiques'|trans }}</h2>
-            </div>
+        <div class="workout-carousel">
+            {% for nextWorkout in nextWorkouts %}
+                <div class="next-workout next-workout-{{ nextWorkout.status }}">
+
+                    <div class="next-workout-content">
+                        <a href="{{ path('start_homepage', {id: nextWorkout.id}) }}">
+                            <div>
+                                <p class="date">
+                                    <span>{{ nextWorkout.dateDay }}</span>
+                                    <span>{{ nextWorkout.dateMonth }}</span>
+                                </p>
+                                <p class="name">{{ nextWorkout.trainingName }}</p>
+                            </div>
+
+                            <div class="exercises">
+                                {% for exercise in nextWorkout.exercises %}
+                                    <p>{{ exercise.name }}</p>
+                                {% endfor %}
+                            </div>
+                            {% if nextWorkout.series > 0 %}
+                            <div class="series">
+                                {% for i in 1..nextWorkout.series %}
+                                    <i class="material-icons">fiber_manual_record</i>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            <input type="button" class="m-button-medium" value="{{ "Commencer"|trans }}">
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+
         </div>
     </div>
 {% endblock %}

@@ -1,0 +1,46 @@
+.table-session-workout tr th {
+  text-align: center;
+  border: none;
+  background: #f3f3f3; }
+  .table-session-workout tr th:nth-child(1) {
+    width: 100px; }
+  .table-session-workout tr th:nth-child(2) {
+    width: 75px; }
+.table-session-workout tr td {
+  text-align: center;
+  vertical-align: middle; }
+  .table-session-workout tr td:nth-child(1) {
+    font-size: 25px;
+    font-weight: 100; }
+  .table-session-workout tr td:nth-child(2) span {
+    display: block; }
+    .table-session-workout tr td:nth-child(2) span:nth-child(1) {
+      font-size: 22px; }
+.table-session-workout tr:nth-child(even) td:nth-child(2) {
+  background: #0060c1;
+  color: #fff; }
+.table-session-workout tr:nth-child(odd) td:nth-child(2) {
+  color: #0060c1; }
+.table-session-workout .exercices-details .exercice-details .exercice-details-name {
+  display: inline-block;
+  width: 200px;
+  margin-right: 20px;
+  overflow: hidden; }
+.table-session-workout .exercices-details .exercice-details .exercice-details-serie {
+  display: inline-block;
+  width: 100px;
+  margin-right: 20px; }
+  .table-session-workout .exercices-details .exercice-details .exercice-details-serie .material-icons {
+    vertical-align: middle;
+    font-size: 13px;
+    color: #777;
+    margin: 0 5px; }
+.table-session-workout .exercices-details .exercice-details .exercice-details-break {
+  display: inline-block;
+  width: 100px;
+  color: #777; }
+  .table-session-workout .exercices-details .exercice-details .exercice-details-break .material-icons {
+    vertical-align: middle;
+    font-size: 13px; }
+
+/*# sourceMappingURL=table-session-workout.css.map */

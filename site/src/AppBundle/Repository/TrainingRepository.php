@@ -18,9 +18,8 @@ class TrainingRepository extends EntityRepository
         );
 
         $qb = $this->getEntityManager()->createQueryBuilder();
-        $qb->select('training', 'exercises')
+        $qb->select('training')
             ->from('AppBundle:Training', 'training')
-            ->leftJoin('training.trainingExercises', 'exercises')
             ->where('training.member = :member')
             ->orderBy('training.createdOn', 'ASC')
             ->setParameters($parameters);
@@ -42,12 +41,8 @@ class TrainingRepository extends EntityRepository
         );
 
         $qb = $this->getEntityManager()->createQueryBuilder();
-        $qb->select('training', 'training_exercises'/*, 'exercise', 'workouts', 'workout_exercises'*/)
+        $qb->select('training')
             ->from('AppBundle:Training', 'training')
-            ->leftJoin('training.trainingExercises', 'training_exercises')
-            //->leftJoin('training_exercises.exercise', 'exercise')
-            //->leftJoin('training.workouts', 'workouts')
-            //->leftJoin('workouts.workoutExercises', 'workout_exercises')
             ->where('training.member = :member')
             ->andWhere('training.id = :id')
             ->setParameters($parameters);

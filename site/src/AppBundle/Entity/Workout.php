@@ -8,10 +8,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="workout")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Sport\Bundle\AppBundle\Repository\WorkoutRepository")
  */
 class Workout
 {
+    const NUMBER_WORKOUT_DASHBOARD = 14;
+
     /**
      * @var int
      *
@@ -30,6 +32,20 @@ class Workout
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="status", type="smallint", options={"default" = 0}, nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="progression", type="smallint", options={"default" = 0}, nullable=false)
+     */
+    private $progression;
+
+    /**
+     * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime", nullable=false)
      */
@@ -88,6 +104,38 @@ class Workout
     }
 
     /**
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return int
+     */
+    public function getProgression()
+    {
+        return $this->progression;
+    }
+
+    /**
+     * @param int $progression
+     */
+    public function setProgression($progression)
+    {
+        $this->progression = $progression;
+    }
+
+    /**
      * @return Member
      */
     public function getMember()
@@ -120,7 +168,7 @@ class Workout
     }
 
     /**
-     * @return int
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -128,9 +176,9 @@ class Workout
     }
 
     /**
-     * @param int $date
+     * @param \DateTime $date
      */
-    public function setDate($date)
+    public function setDate(\DateTime $date)
     {
         $this->date = $date;
     }

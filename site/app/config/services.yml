@@ -20,19 +20,27 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+    Sport\Bundle\StartBundle\Controller\:
+        resource: '../../src/StartBundle/Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
     Sport\Domain\Training\TrainingManager: ~
     Sport\Domain\Training\TrainingFactory: ~
 
     Sport\Domain\Exercise\ExerciseManager: ~
     Sport\Domain\Exercise\ExerciseFactory: ~
 
-    Sport\Domain\TrainingExercise\TrainingExerciseManager: ~
-
     Sport\Domain\Modules\ModuleTrainingDaysFactory: ~
 
     Sport\Domain\Workout\WorkoutManager: ~
+    Sport\Domain\Workout\WorkoutFactory: ~
+
+    Sport\Domain\Workout\SmallWorkoutFactory: ~
 
     Sport\Domain\WorkoutExercise\WorkoutExerciseManager: ~
+
+    Sport\Domain\Start\TrainingFactory: ~
 
     property_normalizer:
         class: Symfony\Component\Serializer\Normalizer\PropertyNormalizer

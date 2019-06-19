@@ -1,0 +1,25 @@
+{% extends '@StartBundle/layout.html.twig' %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset(prefix_path ~ '/bundles/start/js/start.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="container-start m-start-homepage">
+        <form method="post" action="{{ path('start_training_confirm', {'id':training.id}) }}">
+        {% for training in trainings %}
+            <div data-timeout="{{ training.timeout }}" data-id="{{ training.id }}" class="start-training{% if loop.index != 1 %} start-training-hidden{% endif %}">
+                <div class="start-training-image">image</div>
+                <p class="start-training-name">{{ training.name }}</p>
+                <p class="start-training-reps">{{ training.repetitions }} {{ "répétitions"|trans }}</p>
+                {% if loop.last %}
+                    <input type="submit" class="m-button-small btn-start-end" value="{{ "terminer"|trans }}">
+                {% else %}
+                    <input type="button" class="m-button-small btn-start-next" value="{{ "suivant"|trans }}">
+                {% endif %}
+            </div>
+        {% endfor %}
+        </form>
+        <div class="start-training-timeout"></div>
+    </div>
+{% endblock %}

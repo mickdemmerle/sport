@@ -1,0 +1,47 @@
+&.m-start-homepage {
+
+    .start-training {
+        text-align: center;
+
+        &.start-training-hidden {
+            display:none;
+        }
+
+        .start-training-image {
+            margin: 20px auto 40px;
+            height: 100px;
+            width: 100px;
+            background: #ddd;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            border-radius: 100px;
+            line-height: 100px;
+        }
+        
+        .start-training-name {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .start-training-reps {
+            margin-bottom: 40px;
+        }
+    }
+
+    .start-training-timeout {
+        text-align: center;
+        width: 120px;
+        height: 120px;
+        background:$blue-medium;
+        margin: 20px auto;
+        line-height: 120px;
+        font-size: 35px;
+        font-weight: 100;
+        color: #fff;
+        -webkit-border-radius: 120px;
+        -moz-border-radius: 120px;
+        border-radius: 120px;
+        display:none;
+        cursor: pointer;
+    }
+}
